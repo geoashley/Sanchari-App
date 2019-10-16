@@ -6,24 +6,23 @@ import {
     Image,
     View
   } from 'react-native';
+  import { Card, Button } from 'react-native-elements'
 
 
 export default class TripItem extends Component {
     render() {
         return(
-          <View style={styles.rowContainer}>
-            <Image source={{uri: this.props.thumbnail}}
-            style={styles.thumbnail}
-            resizeMode="contain" />
-            <View style={styles.rowText}>
-              <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>
-                {this.props.title}
-              </Text>
-              <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>
-                {this.props.author}
-              </Text>
-            </View>
-          </View>
+          <Card
+          key={this.props.id}
+          title={this.props.title}
+          image={{ uri: this.props.thumbnail }} >
+          <Text style={{ marginBottom: 10 }}>
+          {this.props.author}
+          </Text>
+          <Button
+             backgroundColor='#03A9F4'
+             title="More details"/>
+       </Card>
         );
     }
 }
